@@ -17,13 +17,21 @@
         isMarried: false,
         computer: 20,
     };
-    const createArrayWithGenerics = (params) => {
-        return [params];
+    const createArrayWithGenerics = (param1, param2) => {
+        if (typeof param1 === "number" && typeof param2 === "number") {
+            return param1 + param2;
+        }
     };
-    const res1 = createArrayWithGenerics(3);
+    const res1 = createArrayWithGenerics(3, 8);
+    // console.log(res1);
     const createObj = (val) => {
         return { val };
     };
     const res2 = createObj({ user: "bokor", computer: "HP" });
-    console.log(res2);
+    // console.log(res2);
+    const genericWithTuple = (val, val2, val3) => {
+        return [val, val2, val3];
+    };
+    const res3 = genericWithTuple("bokor", 7, true);
+    // console.log(res3);
 }

@@ -45,15 +45,25 @@
     computer: string;
   }
 
-  const createArrayWithGenerics = <T>(params: T): T[] => {
-    return [params];
+  const createArrayWithGenerics = <T, Q>(param1: T, param2: Q) => {
+    if (typeof param1 === "number" && typeof param2 === "number") {
+      return param1 + param2;
+    }
   };
-  const res1 = createArrayWithGenerics<number>(3);
+  const res1 = createArrayWithGenerics<number, number>(3, 8);
+  // console.log(res1);
 
   const createObj = <T>(val: T) => {
     return { val };
   };
 
   const res2 = createObj<obj>({ user: "bokor", computer: "HP" });
-  console.log(res2);
+  // console.log(res2);
+
+  const genericWithTuple = <T, U, V>(val: T, val2: U, val3: V): [T, U, V] => {
+    return [val, val2, val3];
+  };
+
+  const res3 = genericWithTuple<string, number, boolean>("bokor", 7, true);
+  // console.log(res3);
 }
